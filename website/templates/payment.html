@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %} Making Payment {% endblock %}
+{% block content %}
+<h1>{{user.firstname.title()}} {{user.secondname.title()}}'s Payment</h1>
+
+<div class="sign-up-form">
+    <form  method="POST">
+        <br>
+        <h2>Bank Information</h2>
+
+        <input type="hidden" name="making-payment" value={{my_order.id}}>
+
+        <div class="form-group">
+            <label for="amount">How much would you like to pay?</label>
+            <br>
+            <input type="text" id="amount" name="amount" placeholder="Enter amount">
+        </div>
+        <br>
+        
+        <div class="form-group">
+            <label for="bank-card">Bank Card</label>
+            <br>
+            <input type="text" id="bank-card" name="bank-card" placeholder="Enter bank card">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <br>
+            <input style="width: 80px;" type="text" id="cvv" name="cvv" placeholder="CVV">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="expire-month">Card Expire Month</label>
+            <br>
+            <input style="width: 70px;" type="text" id="expire-month" name="expire-month" placeholder="MM">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="expire-year">Card Expire Year</label>
+            <br>
+            <input style="width: 70px;" type="text" id="expire-year" name="expire-year" placeholder="YY">
+        </div>
+
+        <button class="return-to-browse" type="submit">Make Payment</button>
+
+    </form>
+
+
+{% endblock %}

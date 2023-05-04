@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %} My Cars {% endblock %}
+{% block content %}
+<h1>{{user.firstname.title()}} {{user.secondname.title()}}'s Orders</h1>
+<br>
+<div class="file-information">
+<a href="/uploadfiles"><button class="return-to-browse" >Upload File</button></a>
+{% for file in user.get_files()%}
+<form  method="POST">
+    <input type="hidden" name="file_name" value={{file.file}}>
+    <button class="buttons" type="submit"  name="file_name">{{file.file}}</button>
+    
+</form>
+
+<form  method="POST">
+    <input type="hidden" name="remove_file" value={{file.file}}>
+    <button class="buttons" type="submit" name="remove_file">Remove</button>  
+</form>
+
+<br>
+{% endfor %}
+
+</div>
+
+{% for my_order in my_orders%}
+<div class="my-car-information">
+    <div class="my-car-information-order">
+
+
+    <h2>Order Information</h2>
+    <p>Order Date - {{my_order.timestamp}}</p>
+    <br>
+    <h3>Delivery Address</h3>
+    <p>{{my_order.get_address_postcode().upper()}}</p>
+    <p>{{my_order.get_address_housenumber().upper()}}, {{my_order.get_address_roadname().title()}}</p>
+    <p>{{my_order.get_address_town().title()}}</p>
+    <p>{{my_order.get_address_county().title()}}</p>
+    <br>
+    <h3>Pricing</h3>
+    <p>Car Paid: £{{my_order.carprice}}</p>
+    <p>Price Paid: £{{my_order.pricePaid}}</p>
+    <br>
+    <h3>Status</h3>
+    <p>{{my_order.get_display_status_name().title()}}</p>
+    <p>{{my_order.get_display_status_description().title()}}</p>
+    {% if my_order.pricePaid < my_order.carprice and my_order.status_id == 3 %}
+    <br>
+    <form  method="POST">
+        <input type="hidden" name="make-payment" value={{my_order.id}}>
+        <button class="return-to-browse" style="font-size: 20px;" type="submit" name="make-payment">Make Payment</button>
+    </form>
+    {% endif %} <!---OK SO HERE, need to impletement making payments remember should only be able to pay as much is left-->
+    </div>
+
+    <div class="my-car-information-car">
+
+    <h2>{{my_order.get_car_image().title()}} Information</h2>
+    <img width = "250" src="/static/images/{{my_order.get_car_image()}}.png" alt=""/>
+    <p>Description: {{my_order.get_car_description()}}</p>
+
+    </div>
+</div>
+<br>
+<br>
+{% endfor %}
+
+
+
+
+{% endblock %}

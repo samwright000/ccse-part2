@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Checkout {% endblock %}
+{% block content %}
+<h1>{{user.firstname.title()}} {{user.secondname.title()}}'s Checkout</h1>
+
+{% if car%}
+<div class="checkout-content">
+    <h2>Total Balance: {{car.price}}</h2>
+    <br>
+    <p>Thank you for choosing us to by your car. </p>
+    <br>
+    <li>You are able to buy your car with a one off payment now,</li>
+    <li>or apply for a finance plan.</li>
+    <br>
+    <div class="payment-button-container">
+        <a href="/oneoffpayment/{{car.id}}"><button class="return-to-browse">One Off Payment</button></a>
+        <a href="/paybyfinance/{{car.id}}"><button class="return-to-browse">Pay By Finance</button></a>
+    </div>
+</div>
+
+{% else %}
+
+<div class="checkout-content">
+    <h1>Do not have anything in your basket, therefore you cannot check out!</h1>
+    <br>
+    <a href="/"><button class="return-to-browse">Return To Shop</button></a>
+</div>
+
+{% endif %}
+{% endblock %}

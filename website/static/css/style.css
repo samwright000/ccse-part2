@@ -1,0 +1,400 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    
+}
+
+i{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 18px;
+    transition: all .2s ease-in-out;
+    
+}
+.buttons:hover{
+    background-color: white;
+    color: #03045e;
+}
+
+/*rules for label and buttons so they all look the same*/
+
+.checkout-table{
+display: flex;
+}
+
+.column-items{
+    flex: 50%;
+    padding: 10px;
+    background-color: gray;
+    
+}
+
+.column-balance-breakdown{
+    flex: 50%;
+    padding: 10px;
+
+}
+
+
+.sign-up-title{
+    text-align: center;
+    font-size: 50px;
+    color: #03045e;
+}
+
+
+.sign-up-form{
+    color: white;
+    padding: 10px;
+    background-color: #03045e;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    
+}
+
+
+.form-group{
+    padding: 5px;
+    width: 300px;
+
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .alert-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .alert-error{
+    background-color: #F44336;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alert-success{
+    background-color: #4CAF50;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header{
+    background-color: #03045e;
+    padding: 17px;
+    color: white;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.navbar-title{
+    float: left;
+    transition: all .2s ease-in-out;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+
+.navbar-title:hover{
+    background-color: white;
+    color: #03045e;
+    
+}
+
+nav{
+    float: right;
+    
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 10px;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px;  
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    background-color: white;
+    color: #03045e;
+
+}
+
+.shop{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, 223px);
+    justify-content: center;
+}
+
+@media (max-width: 1000px){
+    .shop{
+        grid-template-columns: repeat(2, 223px);
+    }
+}
+@media (max-width: 500px){
+    .shop{
+        grid-template-columns: repeat(1, 223px);
+    }
+}
+
+.item{
+    background-color: #03045e;
+    color: white;
+    transition: all .2s ease-in-out;
+}
+
+.item:hover{
+    transform: scale(1.1);
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.price-quantity{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 18px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    
+}
+.buttons:hover{
+    background-color: white;
+    color: #03045e;
+}
+
+.series-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding-bottom: 30px;
+    font-size: 30px;
+    color: #03045e;
+}
+
+
+.sql-editing-stuff{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 310px);
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+.shopping-cart{
+    display: grid;
+    grid-template-columns: repeat(2,450px);
+    gap: 20px;
+    justify-content: center;
+
+}
+
+@media (max-width: 950px){
+    .shopping-cart{
+        grid-template-columns: repeat(1, 450px);
+    }
+}
+
+/*cart item, this is made in the cart.js*/
+.cart-item{
+    border: 2.5px solid #03045e;
+    border-radius: 10px;
+    display: flex;
+}
+
+.title-price-x{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 175px;
+}
+
+.title-price{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-price{
+    background-color: #03045e;
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+.checkout-table{
+display: flex;
+}
+
+.column-items{
+    flex: 50%;
+    padding: 10px;
+    background-color: gray;
+    
+}
+
+.column-balance-breakdown{
+    flex: 50%;
+    padding: 10px;
+
+}
+
+
+.check-out-button{
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.checkout-content{
+    background-color: #03045e;
+    width: 500px;
+    margin: auto;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.payment-button-container{
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+
+}
+
+.return-to-browse{
+    background-color: white;
+    color: #03045e;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: #03045e;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.return-to-browse:hover{
+    background-color: #03045e;
+    color: white;
+    border-color: white;
+}
+
+
+.my-car-information{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    gap: 20px;
+    justify-content: center;
+    background-color: #03045e;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+
+}
+
+.my-car-information-order{
+    padding: 10px;
+}
+
+.user-information{
+    background-color: #03045e;
+    color: white;
+    width: 500px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.file-information{
+    background-color: #03045e;
+    color: white;
+    width: 500px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+

@@ -1,0 +1,131 @@
+{% extends "admin.html" %}
+{% block content %}
+<h1>CAR MANAGER</h1>
+
+<div class="shop" id="shop">
+    {% for car in cars %}
+    <div id=car-id-{{car.id}} class="item">
+        <img width="250" height="150" src="/static/images/{{car.image}}.png" alt="">
+        <div class="details">
+            <p>ID: {{car.id}}</p>
+            <p>Series: {{car.series}}</p>
+            <p>Model: {{car.model}}</p>
+            <p>Description: {{car.description}}</p>
+            <div class="price-quantity"><p>Price £: {{car.price}}</p></div>
+            <p>Image: {{car.image}}</p>
+            <p>Stock: {{car.get_stock_level()}}</p>
+            <p>Number Of Cars Sold: {{car.get_stock_numberOfCarsSold()}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<div class = 'carmanager'>
+    <div class="sql-editing-stuff">
+        <form  method="POST">
+            <h2>CREATE CAR</h2>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <br>
+                <input type="text" id="model" name="model" placeholder="Enter model">
+            </div>
+            <div class="form-group">
+                <label for="Series">Series</label>
+                <br>
+                <input type="text" id="series" name="series" placeholder="Enter series">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <br>
+                <input type="text" id="description" name="description" placeholder="Enter description">
+            </div>
+            <div class="form-group">
+                <label for="image">Image Link</label>
+                <br>
+                <input type="text" id="image" name="image" placeholder="Enter image link">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <br>
+                <input type="number" step="0.01" id="price" name="price" placeholder="Enter price">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <br>
+                <input type="text" id="stock" name="stock" placeholder="Enter stock">
+            </div>
+            <button class="buttons" type="submit" name="create-car">Submit</button>
+
+        </form>
+
+
+
+        <form  method="POST">
+            <h2>EDIT CAR</h2>
+            <div class="form-group">
+                <label for="id">ID</label>
+                <br>
+                <input type="text" id="id" name="id" placeholder="Enter id">
+            </div>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <br>
+                <input type="text" id="model" name="model" placeholder="Enter model">
+            </div>
+            <div class="form-group">
+                <label for="Series">Series</label>
+                <br>
+                <input type="text" id="series" name="series" placeholder="Enter series">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <br>
+                <input type="text" id="description" name="description" placeholder="Enter description">
+            </div>
+            <div class="form-group">
+                <label for="image">Image Link</label>
+                <br>
+                <input type="text" id="image" name="image" placeholder="Enter image link">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <br>
+                <input type="number" step="0.01" id="price" name="price" placeholder="Enter price">
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <br>
+                <input type="text" id="stock" name="stock" placeholder="Enter stock">
+            </div>
+            <div class="form-group">
+                <label for="amountsold">Amount Sold</label>
+                <br>
+                <input type="text" id="amountsold" name="amountsold" placeholder="Enter amount sold">
+            </div>
+            <button class="buttons" type="submit" name="edit-car">Submit</button>
+
+        </form>
+
+
+
+        <form  method="POST">
+            <h2>REMOVE CAR</h2>
+            <div class="form-group">
+                <label for="id">ID</label>
+                <br>
+                <input type="text" id="id" name="id" placeholder="Enter id">
+            </div>
+            
+            <button class="buttons" type="submit" name="remove-car">Submit</button>
+
+        </form>
+        
+    </div>
+
+    
+        
+</div>
+{% endblock %}

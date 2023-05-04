@@ -1,0 +1,36 @@
+{% extends "admin.html" %}
+{% block content %}
+<h1>FINANCE MANAGER</h1>
+<div class="sign-up-title">Statuses</div>
+
+<div class="file-information">
+    {% for status in statuss %}
+    <p>ID: {{status.id}}</p>
+    <p>NAME: {{status.name}}</p>
+    <p>DESCRIPTION: {{status.description}}</p>
+    <br>
+    {% endfor %}
+</div>
+
+<div class='carmanager'>
+    <div class="sql-editing-stuff">
+        <form method="POST">
+            <h2>Edit Status</h2>
+            <div class="form-group">
+                <label for="order-id">Order ID</label>
+                <br>
+                <input type="text" id="order-id" name="order-id" placeholder="Enter order id">
+            </div>
+            <div class="form-group">
+                <label for="new-status-id">New Status ID</label>
+                <br>
+                <input type="text" id="new-status-id" name="new-status-id" placeholder="Enter new status id">
+            </div>
+
+            <button class="buttons" type="submit" name="edit-order-status">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

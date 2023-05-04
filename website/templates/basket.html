@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Basket {% endblock %}
+{% block content %}
+<h1>{{user.firstname.title()}} {{user.secondname.title()}}'s Basket</h1>
+
+{% if numberOfCars > 0%}
+
+
+
+<div id="shopping-cart" class="shopping-cart">
+
+    {% for car in cars %}
+
+    <div class="cart-item">
+        <img width = "250" src="/static/images/{{car.image}}.png" alt=""/>
+        <div class = "details">
+            <div class = "title-price-x">
+                <h4 class = "title-price">
+                    <p>{{car.series}}{{car.model}}</p>
+                    <p class = "cart-item-price">£{{car.price}}</p>
+                </h4>
+                <div class="remove-car-from-basket">
+                    <form  method="POST">
+                        <input type="hidden" name="remove-car" value={{car.id}}>
+                        <button class="return-to-browse" style="font-size: 10px;" type="submit" name="remove-car">╳</button>
+                    </form>
+                </div>
+            </div>
+            <p>{{car.description}}</p>
+
+            <div class="check-out-button">
+                <a href="/checkout/{{car.id}}"><button class="return-to-browse" style="font-size: 10px;" type="submit" name="check-out">Check out</button></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% else %}
+<div class="checkout-content">
+    <h1>do not have anything in your basket, return to shop!</h1>
+    <br>
+    <a href="/"><button class="return-to-browse">Return To Shop</button></a>
+</div>
+
+{% endif %}
+
+
+{% endblock %}

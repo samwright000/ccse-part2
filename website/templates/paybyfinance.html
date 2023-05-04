@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %} Making Payment {% endblock %}
+{% block content %}
+<h1>{{user.firstname.title()}} {{user.secondname.title()}}'s Payment</h1>
+
+{% if total_balance > 0%}
+
+
+
+<div class="sign-up-form">
+    <form  method="POST">
+        <h1>Total: {{total_balance}}</h1>
+        <br>
+        <h2>Bank Information</h2>
+        
+        <div class="form-group">
+            <label for="bank-card">Bank Card</label>
+            <br>
+            <input type="text" id="bank-card" name="bank-card" placeholder="Enter bank card">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <br>
+            <input style="width: 80px;" type="text" id="cvv" name="cvv" placeholder="CVV">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="expire-month">Card Expire Month</label>
+            <br>
+            <input style="width: 70px;" type="text" id="expire-month" name="expire-month" placeholder="MM">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="expire-year">Card Expire Year</label>
+            <br>
+            <input style="width: 70px;" type="text" id="expire-year" name="expire-year" placeholder="YY">
+        </div>
+        <br>
+
+        <h2>Delivery Address</h2>
+
+        <div class="form-group">
+            <label for="housenumber">House Number</label>
+            <br>
+            <input type="text" id="housenumber" name="housenumber" placeholder="Enter House Number">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="roadname">Road Name</label>
+            <br>
+            <input type="text" id="roadname" name="roadname" placeholder="Enter Road Name">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <br>
+            <input type="text" id="city" name="city" placeholder="Enter city">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="county">County</label>
+            <br>
+            <input type="text" id="county" name="county" placeholder="Enter county">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="postcode">Postcode</label>
+            <br>
+            <input type="text" id="postcode" name="postcode" placeholder="Enter postcode">
+        </div>
+        <br>
+
+        <button class="return-to-browse" type="submit">Make Application</button>
+    
+    </form>
+    </div>
+    <br>
+    <br>
+
+
+{% else %}
+
+<div class="checkout-content">
+    <h1>do not have anything in your basket, therefore you cannot make a payment!</h1>
+    <br>
+    <a href="/"><button class="return-to-browse">Return To Shop</button></a>
+</div>
+
+{% endif %}
+{% endblock %}
